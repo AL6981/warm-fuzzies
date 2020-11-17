@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace warm-fuzzies-client build",
+    "dev": "yarn workspace warm-fuzzies-server dev",
+    "dev:debug": "yarn workspace warm-fuzzies-server dev:debug",
+    "heroku-postbuild": "yarn workspace warm-fuzzies-client build",
+    "start": "yarn workspace warm-fuzzies-server start"
+  },
+  "engines": {
+    "node": "~14.8"
+  }
+}
