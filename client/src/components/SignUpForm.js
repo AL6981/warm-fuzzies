@@ -21,7 +21,7 @@ const SignUpForm = props => {
   };
 
   if (redirectStatus) {
-    return <Redirect to="/menu" />;
+    return <Redirect to="/" />;
   }
 
   const messageFunc = ({ messages, message }) => {

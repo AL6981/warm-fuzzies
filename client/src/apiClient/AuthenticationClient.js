@@ -2,8 +2,8 @@ import AbstractClient from "./AbstractClient";
 
 class AuthenticationClient extends AbstractClient {
   // eslint-disable-next-line class-methods-use-this
-  async signIn({ email, username, password }) {
-    const resp = await AuthenticationClient.post("/user-sessions/register", { email, username, password }).catch(
+  async signIn({ email, password }) {
+    const resp = await AuthenticationClient.post("/user-sessions", { email, password }).catch(
       (error) => {
         if (error.response.status === 401) {
           return undefined;

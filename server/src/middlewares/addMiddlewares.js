@@ -5,9 +5,9 @@ import addPassport from "./addPassport.js";
 
 const addMiddlewares = async app => {
   addExpressSession(app);
+  await addPassport(app);
   await addClientMiddlewares(app);
   await addEnvironmentMiddlewares(app);
-  await addPassport(app);
 };
 
 export default addMiddlewares;

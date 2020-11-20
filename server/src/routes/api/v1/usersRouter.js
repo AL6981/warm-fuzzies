@@ -2,7 +2,6 @@ import express from "express";
 import objection from "objection";
 
 import User from "../../../models/User.js";
-import isAuthenticated from "../../../middlewares/isAuthenticated.js";
 
 const usersRouter = new express.Router();
 const { ValidationError } = objection;

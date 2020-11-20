@@ -4,8 +4,6 @@ import passport from "passport";
 const sessionRouter = new express.Router();
 
 sessionRouter.post("/", (req, res, next) => {
-  console.log("got here")
-  //what is happening here with "local"
   return passport.authenticate("local", (err, user) => {
     if (err) {
       // eslint-disable-next-line no-console

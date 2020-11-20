@@ -11,7 +11,6 @@ const AuthenticatedRoute = ({ component: Component, ...rest }) => {
         if (user) {
           return <Component {...props} />;
         } else {
-
           if (checked) {
             return <Redirect to="/user-sessions/new" />;
           }
