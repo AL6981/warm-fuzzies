@@ -56,9 +56,7 @@ const AuthenticationProvider = ({ children }) => {
         }
       })
       .then((user) => {
-        if (user) {
-          actions.signIn(user);
-        }
+        actions.signIn(user);
       });
   }, []);
 

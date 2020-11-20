@@ -7,7 +7,7 @@ const Home = props => {
   return (
     <div>
       <h1>Warm Fuzzies</h1>
-      <Link to='/sign-up'>Sign up</Link>
+      <Link to='/users/new'>Sign up</Link>
     </div>
   )
 };

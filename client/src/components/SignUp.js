@@ -9,8 +9,6 @@ const SignUp = props => {
       <SignUpForm />
     </div>
   )
-
-
 };
 
 export default SignUp;
