@@ -15,7 +15,6 @@ exports.up = async (knex) => {
     return knex.schema.createTable(tableName, (table) => {
       table.bigIncrements("id");
       table.string("email").notNullable().unique();
-      table.string("username").notNullable().unique();
       table.string("cryptedPassword").notNullable();
       table.integer("elevationCount").notNullable().defaultTo(0);
       table.integer("fuzzyCount").notNullable().defaultTo(0);
