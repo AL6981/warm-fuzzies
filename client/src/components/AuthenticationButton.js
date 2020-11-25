@@ -11,10 +11,8 @@ const AuthenticationButton = () => {
   const signOutHandler = useCallback(() => {
     const client = new AuthenticationClient()
     client.signOut().then((resp) => {
-
       signOut()
       history.push("/")
-
     })
   }, [signOut, history]);
 
