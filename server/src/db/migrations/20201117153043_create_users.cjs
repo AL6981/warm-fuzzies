@@ -17,8 +17,8 @@ exports.up = async (knex) => {
       table.string("email").notNullable().unique();
       table.string("username").notNullable().unique();
       table.string("cryptedPassword").notNullable();
-      table.integer("elevations").notNullable().defaultTo(0);
-      table.integer("fuzzies").notNullable().defaultTo(0);
+      table.integer("elevationCount").notNullable().defaultTo(0);
+      table.integer("fuzzyCount").notNullable().defaultTo(0);
       table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
       table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
     })
