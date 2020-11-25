@@ -16,6 +16,23 @@ class AuthenticationClient extends AbstractClient {
     }
     return undefined;
   }
+
+  async signOut() {
+    const resp = await AuthenticationClient.post("/user-sessions/sign-out").catch(
+      (error) => {
+        if (error.response.status === 401) {
+          return undefined;
+        }
+
+        throw error;
+      },
+    );
+
+    if (resp && resp.data) {
+      return resp.data;
+    }
+    return undefined;
+  }
 };
 
 export default AuthenticationClient;

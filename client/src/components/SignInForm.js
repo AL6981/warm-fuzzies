@@ -8,7 +8,7 @@ import Authentication from "../providers/Authentication";
 const SignInForm = () => {
   const { signIn } = Authentication.useAuthentication();
 
-  const [redirectStatus, setRedirectStatus] = useState(false);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async (data) => {
@@ -16,12 +16,12 @@ const SignInForm = () => {
     const userSigninData = await client.signIn(data);
     if (userSigninData) {
       signIn(userSigninData);
-      setRedirectStatus(true);
+      setShouldRedirect(true);
     }
   };
 
-  if (redirectStatus) {
-    return <Redirect to="/" />;
+  if (shouldRedirect) {
+    return <Redirect push to="/home" />;
   }
 
   return (
@@ -48,7 +48,7 @@ const SignInForm = () => {
         id="password"
         placeholder="Password"
         ref={register({
-          required: "Required",
+          required: "Password Required",
         })}
       />
       <input className="button button-center" type="submit" value="Login" />

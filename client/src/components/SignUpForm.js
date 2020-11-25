@@ -7,21 +7,22 @@ import translateServerErrors from "../services/translateServerErrors";
 import UserClient from "../apiClient/UserClient";
 
 const SignUpForm = props => {
-  const [redirectStatus, setRedirectStatus] = useState();
+  const [shouldRedirect, setShouldRedirect] = useState();
   const { handleSubmit, register, errors, setError } = useForm({ criteriaMode: "all" });
 
   const onSubmit = async (data) => {
     const client = new UserClient();
     const postUserResponse = await client.postUser({ email: data.email, password: data.password });
     if (!postUserResponse.errors) {
-      setRedirectStatus(true);
+      setShouldRedirect(true);
+      console.log("redirect is true")
     } else {
       translateServerErrors(postUserResponse.errors, setError);
     }
   };
 
-  if (redirectStatus) {
-    return <Redirect to="/" />;
+  if (shouldRedirect) {
+    return <Redirect push to="/home" />;
   }
 
   const messageFunc = ({ messages, message }) => {
@@ -55,6 +56,7 @@ const SignUpForm = props => {
           placeholder="Password"
           ref={register({
             required: "Required",
+            minLength: { value: 8, message: 'Password too short' }
           })}
         />
         <ErrorMessage errors={errors} name="password" render={messageFunc} />

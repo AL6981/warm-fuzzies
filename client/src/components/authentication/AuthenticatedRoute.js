@@ -12,6 +12,9 @@ const AuthenticatedRoute = ({ component: Component, ...rest }) => {
           return <Component {...props} />;
         } else {
           if (checked) {
+            addNotification({
+              id: "signInRequired",
+            })
             return <Redirect to="/user-sessions/new" />;
           }
         }

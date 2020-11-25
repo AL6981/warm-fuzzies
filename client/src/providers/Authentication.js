@@ -1,5 +1,5 @@
 /* eslint-disable no-else-return */
-import React, { createContext, useReducer, useMemo, useContext, useEffect } from "react";
+import React, { createContext, useReducer, useMemo, useContext, useEffect, useCallback } from "react";
 
 const initialState = { user: null, checked: false };
 const AuthenticationContext = createContext(initialState);
@@ -38,10 +38,18 @@ const AuthenticationProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authenticationReducer, initialState);
   const actions = authenticationActions(state, dispatch);
 
+  const signOut = useCallback(() => fetch("/api/v1/user-sessions/logout")
+    .then((resp) => {
+      if (resp.ok && resp.status === 200) {
+        actions.signOut();
+      }
+    }), []);
+
   const value = useMemo(
     () => ({
       ...state,
       ...actions,
+      signOut
     }),
     [state, actions]
   );

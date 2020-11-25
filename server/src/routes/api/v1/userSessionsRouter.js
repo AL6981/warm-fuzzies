@@ -28,4 +28,9 @@ sessionRouter.get("/current", (req, res) => {
   }
 });
 
+sessionRouter.post("/sign-out", (req, res) => {
+  req.logout();
+  res.status(200).json({ message: "User logged out" });
+})
+
 export default sessionRouter;

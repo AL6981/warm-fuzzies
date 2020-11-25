@@ -14,10 +14,12 @@ usersRouter.post("/", async (req, res) => {
   let newUser = new User();
   newUser.email = email;
   newUser.password = password;
+  console.log(newUser)
 
   try {
     newUser = await newUser.$query().insert();
-    await user.$query().patch();
+    console.log(newUser)
+    // await user.$query().patch();
   } catch (error) {
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });
