@@ -5,11 +5,13 @@ import Home from './Home';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import NavBar from './NavBar'
+import Welcome from './Welcome'
 
 const Routes = () => (
   <BrowserRouter>
     < NavBar />
     <Switch>
+      < Route exact path="/" component={Welcome} />
       < Route exact path="/users/new" component={SignUp} />
       < Route exact path="/user-sessions/new" component={SignIn} />
       < AuthenticatedRoute exact path="/home" component={Home} />

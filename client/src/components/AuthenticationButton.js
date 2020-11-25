@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { Link, useHistory } from "react-router-dom";
+import AuthenticationClient from "../apiClient/AuthenticationClient";
 
 import { useAuthentication } from "../providers/Authentication";
 
@@ -8,7 +9,13 @@ const AuthenticationButton = () => {
   const history = useHistory();
 
   const signOutHandler = useCallback(() => {
-    signOut().then(() => history.push("/user-sessions/new"));
+    const client = new AuthenticationClient()
+    client.signOut().then((resp) => {
+
+      signOut()
+      history.push("/")
+
+    })
   }, [signOut, history]);
 
   const className = "button justify-self-end";
