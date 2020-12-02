@@ -4,8 +4,10 @@ import AuthenticatedRoute from './authentication/AuthenticatedRoute';
 import Home from './Home';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import NavBar from './NavBar'
-import Welcome from './Welcome'
+import NavBar from './NavBar';
+import Welcome from './Welcome';
+import Give from './Give';
+import WarmFuzziesIndex from './WarmFuzziesIndex';
 
 const Routes = () => (
   <BrowserRouter>
@@ -15,6 +17,8 @@ const Routes = () => (
       < Route exact path="/users/new" component={SignUp} />
       < Route exact path="/user-sessions/new" component={SignIn} />
       < AuthenticatedRoute exact path="/home" component={Home} />
+      < AuthenticatedRoute exact path="/warm-fuzzies/new" component={Give} />
+      < AuthenticatedRoute exact path="/warm-fuzzies/index" component={WarmFuzziesIndex} />
     </Switch>
   </BrowserRouter>
 );
