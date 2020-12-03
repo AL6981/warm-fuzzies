@@ -28,13 +28,18 @@ usersRouter.post("/", async (req, res) => {
   return res.status(201).json({ user: newUser });
 });
 
-usersRouter.get("/elevations", async (req, res) => {
-  debugger
-  const user = await User.query().findById(req.user.id);
-  debugger
-  const elevations = await WarmFuzzy.query().select('elevatorId').where('elevatorId', 'user.id');
-  debugger
-  console.log(elevations)
+// usersRouter.get("/elevations", async (req, res) => {
+//   const user = await User.query().findById(req.user.id);
+//   const elevations = await WarmFuzzy.query().select('elevatorId').where('elevatorId', 'user.id');
+//   console.log(elevations)
+// })
+
+usersRouter.get("/all-users", async (req, res) => {
+  const allUsers = await User.query();
+  const serializedUsers = allUsers.map(user => {
+    return { value: user.id, name: user.email }
+  })
+  return res.status(201).json(allUsers);
 })
 
 export default usersRouter;

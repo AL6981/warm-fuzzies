@@ -1,19 +1,21 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState, useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
-
+import Select from 'react-select';
 import WarmFuzzyClient from "../apiClient/WarmFuzzyClient";
 import Authentication from "../providers/Authentication";
+import UserClient from "../apiClient/UserClient";
 
 const GiveForm = () => {
-  const { user, createNewFuzzy } = Authentication.useAuthentication();
+  const { user } = Authentication.useAuthentication();
+  const [allUsers, setAllUsers] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const { handleSubmit, register, errors, reset } = useForm();
+  const { handleSubmit, register, errors, reset, control } = useForm();
 
   const onSubmit = async (data) => {
     const client = new WarmFuzzyClient();
-    const warmFuzzyData = await client.postFuzzy({ ...data, elevatorId: user.userId });
+    const warmFuzzyData = await client.postFuzzy({ ...data, elevatorId: user.userId, recipientId: data.recipientId.value });
     if (warmFuzzyData) {
       setShouldRedirect(true);
     }
@@ -22,6 +24,25 @@ const GiveForm = () => {
   if (shouldRedirect) {
     return <Redirect push to="/warm-fuzzies/index" />;
   }
+
+  useEffect(() => {
+    const client = new UserClient();
+    const allUsersData = client.getAllUsers()
+      .then(resp => {
+        return resp;
+      })
+      .then(users => {
+        setAllUsers(users)
+      })
+  }, []);
+
+  const options = allUsers.map(user => {
+    return {
+      value: user.id,
+      label: user.email
+    }
+  })
+  console.log(options)
 
   const messageFunc = ({ messages, message }) => {
     let theMessage = message;
@@ -38,7 +59,6 @@ const GiveForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <input
         className="input-field"
-        type="text"
         name="title"
         id="title"
         placeholder="Title"
@@ -49,7 +69,6 @@ const GiveForm = () => {
       <ErrorMessage errors={errors} name="title" render={messageFunc} />
       <input
         className="input-field"
-        type="description"
         name="description"
         id="description"
         placeholder="Give the deets!"
@@ -58,15 +77,15 @@ const GiveForm = () => {
         })}
       />
       <ErrorMessage errors={errors} name="description" render={messageFunc} />
-      <input
-        className="input-field"
-        type="recipientId"
+      <Controller
         name="recipientId"
+        as={Select}
+        options={options}
+        className="input-field"
         id="recipientId"
-        placeholder="Who gets this fuzzy?"
-        ref={register({
-          required: true,
-        })}
+        control={control}
+        rules={{ required: true }}
+        defaultValue={0}
       />
       <ErrorMessage errors={errors} name="recipientId" render={messageFunc} />
 
