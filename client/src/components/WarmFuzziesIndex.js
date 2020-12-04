@@ -14,7 +14,6 @@ const WarmFuzziesIndex = (props) => {
         return resp;
       })
       .then(fuzzies => {
-        console.log("returned fuzzies here")
         setWarmFuzzies(fuzzies)
       })
   }

@@ -15,7 +15,6 @@ const SignUpForm = props => {
     const postUserResponse = await client.postUser({ email: data.email, password: data.password });
     if (!postUserResponse.errors) {
       setShouldRedirect(true);
-      console.log("redirect is true")
     } else {
       translateServerErrors(postUserResponse.errors, setError);
     }

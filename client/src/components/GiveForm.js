@@ -42,7 +42,6 @@ const GiveForm = () => {
       label: user.email
     }
   })
-  console.log(options)
 
   const messageFunc = ({ messages, message }) => {
     let theMessage = message;

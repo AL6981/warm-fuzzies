@@ -30,7 +30,6 @@ class WarmFuzzyClient extends AbstractClient {
       })
 
     if (resp && resp.status === 201) {
-      console.log('so far so good')
       return resp.data;
     }
     return resp.data;
