@@ -16,14 +16,12 @@ const GiveForm = () => {
   const onSubmit = async (data) => {
     const client = new WarmFuzzyClient();
     const warmFuzzyData = await client.postFuzzy({ ...data, elevatorId: user.userId, recipientId: data.recipientId.value });
-    if (warmFuzzyData) {
-      setShouldRedirect(true);
-    }
+    setShouldRedirect(true);
   };
 
-  if (shouldRedirect) {
-    return <Redirect push to="/warm-fuzzies/index" />;
-  }
+  // if (shouldRedirect) {
+  //   return <Redirect push to="/warm-fuzzies/index" />;
+  // }
 
   useEffect(() => {
     const client = new UserClient();
