@@ -19,10 +19,6 @@ const GiveForm = () => {
     setShouldRedirect(true);
   };
 
-  // if (shouldRedirect) {
-  //   return <Redirect push to="/warm-fuzzies/index" />;
-  // }
-
   useEffect(() => {
     const client = new UserClient();
     const allUsersData = client.getAllUsers()
@@ -33,6 +29,10 @@ const GiveForm = () => {
         setAllUsers(users)
       })
   }, []);
+
+  if (shouldRedirect) {
+    return <Redirect push to="/warm-fuzzies/index" />;
+  }
 
   const options = allUsers.map(user => {
     return {
