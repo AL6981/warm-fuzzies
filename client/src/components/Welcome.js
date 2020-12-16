@@ -14,7 +14,7 @@ const Welcome = () => {
       })
   }, []);
   return (
-    <div>
+    <div className="text-center text-red-900">
       <h4>Welcome</h4>
       <div>{`"${quote.content}"`}</div>
       <div>{`~${quote.author}`}</div>

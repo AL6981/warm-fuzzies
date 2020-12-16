@@ -5,7 +5,7 @@ import SignInForm from "./SignInForm.js";
 
 const SignInBox = () => {
   return (
-    <div className="centered-box">
+    <div className="text-center">
       <div className="form-container">
         <h1 className="text-4xl"> Sign In </h1>
 

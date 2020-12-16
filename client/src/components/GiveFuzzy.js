@@ -1,17 +1,17 @@
 import React from "react";
 
-import GiveForm from "./GiveForm.js";
+import GiveFuzzyForm from "./GiveFuzzyForm.js";
 
-const Give = () => {
+const GiveFuzzy = () => {
   return (
     <div className="centered-box">
       <div className="form-container">
         <h4 className="font-thin my-3"> Give a warm fuzzy! </h4>
-        <GiveForm />
+        <GiveFuzzyForm />
 
       </div>
     </div>
   );
 };
 
-export default Give;
+export default GiveFuzzy;

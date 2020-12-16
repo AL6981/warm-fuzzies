@@ -25,9 +25,12 @@ const WarmFuzziesIndex = (props) => {
       <WarmFuzzyItem
         key={fuzzy.id}
         title={fuzzy.title}
+        date={fuzzy.date}
         description={fuzzy.description}
         elevatorId={fuzzy.elevatorId}
         recipientId={fuzzy.recipientId}
+        recipientEmail={fuzzy.recipientEmail}
+        elevatorEmail={fuzzy.elevatorEmail}
       />)
   }))
 

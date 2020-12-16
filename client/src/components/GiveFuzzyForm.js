@@ -7,7 +7,7 @@ import WarmFuzzyClient from "../apiClient/WarmFuzzyClient";
 import Authentication from "../providers/Authentication";
 import UserClient from "../apiClient/UserClient";
 
-const GiveForm = () => {
+const GiveFuzzyForm = () => {
   const { user } = Authentication.useAuthentication();
   const [allUsers, setAllUsers] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -91,4 +91,4 @@ const GiveForm = () => {
   );
 };
 
-export default GiveForm;
+export default GiveFuzzyForm;

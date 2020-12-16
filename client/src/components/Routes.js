@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import NavBar from './NavBar';
 import Welcome from './Welcome';
-import Give from './Give';
+import GiveFuzzy from './GiveFuzzy';
 import WarmFuzziesIndex from './WarmFuzziesIndex';
 import WarmFuzziesGiven from "./WarmFuzziesGiven";
 import WarmFuzziesReceived from "./WarmFuzziesReceived";
@@ -21,7 +21,7 @@ const Routes = () => (
       < Route exact path="/users/:id/warm-fuzzies/received" component={WarmFuzziesReceived} />
       < Route exact path="/user-sessions/new" component={SignIn} />
       < AuthenticatedRoute exact path="/home" component={Home} />
-      < AuthenticatedRoute exact path="/warm-fuzzies/new" component={Give} />
+      < AuthenticatedRoute exact path="/warm-fuzzies/new" component={GiveFuzzy} />
       < AuthenticatedRoute exact path="/warm-fuzzies/index" component={WarmFuzziesIndex} />
     </Switch>
   </BrowserRouter>
