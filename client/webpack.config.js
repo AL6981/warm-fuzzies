@@ -37,36 +37,24 @@ module.exports = {
         loader: "file-loader",
       },
       {
-        test: /\.module\.s(a|c)ss$/,
-        use: [
-          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: isDevelopment,
-              esModule: true,
-              hmr: isDevelopment,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.s(a|c)ss$/,
+        test: /\.(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           {
-            loader: "sass-loader",
+            loader: "postcss-loader",
             options: {
-              sourceMap: isDevelopment,
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
             },
           },
         ],

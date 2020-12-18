@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-import "../assets/scss/main.scss";
+import "../assets/scss/main.css";
 import SignUpForm from "./SignUpForm";
 
 const SignUp = props => {

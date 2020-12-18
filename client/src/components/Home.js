@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useAuthentication } from "../providers/Authentication";
-import "../assets/scss/main.scss";
+import "../assets/scss/main.css";
 
 const Home = props => {
   const { user } = useAuthentication();

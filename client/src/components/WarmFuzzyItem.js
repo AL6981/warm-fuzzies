@@ -15,7 +15,7 @@ const WarmFuzzyItem = (props) => {
     string = `Given by: ${email[0]} \n\n Given to: ${email[1]}`
   }
   return (
-    <div>
+    <div className="block ... bg-pink-300 rounded-md p-5">
       <h4>{`Title: ${title}`}</h4>
       <p>{`Date given: ${date}`}</p>
       <p>{`Description: ${description}`}</p>

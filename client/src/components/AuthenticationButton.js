@@ -16,7 +16,7 @@ const AuthenticationButton = () => {
     })
   }, [signOut, history]);
 
-  const className = "button justify-self-end";
+  const className = "button place-self-center";
 
   const DisplayButton = () => (
     user

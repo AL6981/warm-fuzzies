@@ -2,15 +2,16 @@ import React from "react";
 import { hot } from "react-hot-loader/root";
 import Authentication from "../providers/Authentication";
 import Routes from "./Routes";
-// import "tailwindcss/tailwind.css"
 
-import "../assets/scss/main.scss";
+import "../assets/scss/main.css";
 
 const App = props => {
   return (
-    <Authentication.AuthenticationProvider>
-      <Routes />
-    </Authentication.AuthenticationProvider>
+    <div className="px-5">
+      <Authentication.AuthenticationProvider>
+        <Routes />
+      </Authentication.AuthenticationProvider>
+    </div>
   );
 };
 

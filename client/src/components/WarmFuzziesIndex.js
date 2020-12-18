@@ -36,8 +36,8 @@ const WarmFuzziesIndex = (props) => {
 
   return (
     <div className="centered-box">
-      <div className="form-container">
-        <h3 className="font-thin my-3"> WarmFuzzies Index </h3>
+      <h3 className="font-thin my-3"> ALLLLLL the WarmFuzzies! </h3>
+      <div className="space-y-4">
         {allFuzzies}
       </div>
     </div>

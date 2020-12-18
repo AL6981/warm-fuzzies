@@ -11,6 +11,10 @@
     "node": "~14.8"
   },
   "devDependencies": {
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "postcss-preset-env": "^6.7.0",
     "webpack-dev-server": "~3.11"
   },
   "dependencies": {

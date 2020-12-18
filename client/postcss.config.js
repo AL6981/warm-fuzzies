@@ -1,4 +1,4 @@
+const path = require("path")
 module.exports = {
-  parser: "sugarss",
-  plugins: [require("tailwindcss"), require("autoprefixer")]
+  plugins: [require("tailwindcss")(path.join(__dirname, "./tailwind.config.js")), require("autoprefixer")]
 };

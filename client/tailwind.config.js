@@ -8,6 +8,9 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    container: {
+      padding: '10px'
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -19,16 +22,45 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
-      black: colors.black,
+      black: {
+        DEFAULT: '#1A1A1D',
+        light: '#61616b',
+        lightest: '#a1a1aa',
+      },
       white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
+      gray: {
+        darkest: '#3f3f40',
+        dark: '#4c4c4d',
+        DEFAULT: '#4E4E50',
+        light: '#7e7e81',
+        lightest: '#b2b2b3',
+      },
+      red: {
+        darkest: '#4e1823',
+        dark: '#621e2b',
+        DEFAULT: '#6F2232',
+        light: '#9c3046',
+        lightest: '#d57689',
+      },
       yellow: colors.amber,
       green: colors.emerald,
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
-      pink: colors.pink,
+      pink: {
+        darkest: '#49031f',
+        dark: '#7a0634',
+        DEFAULT: '#950740',
+        light: '#db0a5e',
+        lightest: '#f75596',
+      },
+      orange: {
+        darkest: '#620420',
+        dark: '#940530',
+        DEFAULT: '#c3073F',
+        light: '#f72262',
+        lightest: '#fb84a8',
+      }
     },
     spacing: {
       px: '1px',
@@ -854,5 +886,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [require("@tailwindcss/ui")]
+
 }
