@@ -14,7 +14,7 @@ import WarmFuzziesReceived from "./WarmFuzziesReceived";
 const Routes = () => (
   <BrowserRouter>
     < NavBar />
-    <Switch>
+    <Switch className="flex">
       < Route exact path="/" component={Welcome} />
       < Route exact path="/users/new" component={SignUp} />
       < Route exact path="/users/:id/warm-fuzzies/given" component={WarmFuzziesGiven} />

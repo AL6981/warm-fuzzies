@@ -21,7 +21,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
       black: {
         DEFAULT: '#1A1A1D',
         light: '#61616b',
@@ -197,6 +196,7 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      quotes: ['"Quotes Caps"', 'sans-serif'],
       sans: [
         'ui-sans-serif',
         'system-ui',
