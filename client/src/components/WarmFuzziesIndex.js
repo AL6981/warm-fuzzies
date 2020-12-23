@@ -21,6 +21,7 @@ const WarmFuzziesIndex = (props) => {
   useEffect(fetchWarmFuzzies, []);
 
   const allFuzzies = warmFuzzies.map((fuzzy => {
+    let showAllEmail;
     return (
       <WarmFuzzyItem
         key={fuzzy.id}
@@ -31,6 +32,7 @@ const WarmFuzziesIndex = (props) => {
         recipientId={fuzzy.recipientId}
         recipientEmail={fuzzy.recipientEmail}
         elevatorEmail={fuzzy.elevatorEmail}
+        showAllEmail={true}
       />)
   }))
 

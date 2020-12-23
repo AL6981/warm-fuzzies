@@ -1,17 +1,17 @@
 import React from "react";
 
 const WarmFuzzyItem = (props) => {
-  const { date, title, description, elevatorEmail, recipientEmail } = props;
+  const { date, title, description, elevatorEmail, recipientEmail, showAllEmail } = props;
   let email, string;
-  if (elevatorEmail) {
-    email = elevatorEmail
-    string = `Given by: ${email}`
-  } else if (recipientEmail) {
-    email = recipientEmail
-    string = `Given to: ${email}`
-  } else {
+  if (showAllEmail === true) {
     email = [elevatorEmail, recipientEmail]
     string = `Given by: ${email[0]} \n\n Given to: ${email[1]}`
+  } else if (showAllEmail === "elevator") {
+    email = elevatorEmail
+    string = `Given by: ${email}`
+  } else if ((showAllEmail === "recipient")) {
+    email = recipientEmail
+    string = `Given to: ${email}`
   }
   return (
     <div className="hover:from-orange-lightest hover:to-pink-lightest bg-orange-lightest rounded-md p-2 m-3">

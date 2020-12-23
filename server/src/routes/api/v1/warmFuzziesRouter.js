@@ -1,6 +1,7 @@
 import express from "express";
 import objection from "objection";
 import WarmFuzzy from "../../../models/WarmFuzzy.js";
+import allFuzziesSerializer from "../../../serializers/allFuzziesSerializer.js"
 
 const warmFuzziesRouter = new express.Router();
 
@@ -28,8 +29,12 @@ warmFuzziesRouter.post("/", async (req, res) => {
 });
 
 warmFuzziesRouter.get("/index", async (req, res) => {
-  const warmFuzzies = await WarmFuzzy.query();
-  return res.status(201).json(warmFuzzies);
+  let warmFuzzies = await WarmFuzzy.query();
+  const promises = warmFuzzies.map(fuzzy => {
+    return allFuzziesSerializer(fuzzy)
+  })
+  const serializedFuzzies = await Promise.all(promises);
+  return res.status(201).json(serializedFuzzies);
 })
 
 export default warmFuzziesRouter;
