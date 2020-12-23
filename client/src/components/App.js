@@ -7,7 +7,7 @@ import "../assets/scss/main.css";
 
 const App = props => {
   return (
-    <div className="px-5">
+    <div className="px-5 font-raleway">
       <Authentication.AuthenticationProvider>
         <Routes />
       </Authentication.AuthenticationProvider>

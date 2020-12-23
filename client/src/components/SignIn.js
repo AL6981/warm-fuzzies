@@ -5,13 +5,14 @@ import SignInForm from "./SignInForm.js";
 
 const SignInBox = () => {
   return (
-    <div className="">
-      <h1 className="text-4xl"> Sign In </h1>
-
-      <h4 className="font-thin my-3"> Sign In to your account. </h4>
+    <div>
+      <h1 className="mb-5 text-4xl ">
+        <p className="text-gray-lightest mt-3">Sign In</p>
+      </h1>
       <SignInForm />
-
-      <Link to="/users/new"> New to Warm Fuzzies? Sign Up! </Link>
+      <Link className="text-1xl text-gray-lightest mt-5 underline" to="/users/new">
+        New to Warm Fuzzies? Sign Up!
+      </Link>
 
     </div>
   );

@@ -53,41 +53,48 @@ const GiveFuzzyForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <input
-        className="input-field"
-        name="title"
-        id="title"
-        placeholder="Title"
-        ref={register({
-          required: "Title Required",
-        })}
-      />
-      <ErrorMessage errors={errors} name="title" render={messageFunc} />
-      <input
-        className="input-field"
-        name="description"
-        id="description"
-        placeholder="Give the deets!"
-        ref={register({
-          required: "Description Required",
-        })}
-      />
-      <ErrorMessage errors={errors} name="description" render={messageFunc} />
-      <Controller
-        name="recipientId"
-        as={Select}
-        options={options}
-        className="input-field"
-        id="recipientId"
-        control={control}
-        rules={{ required: true }}
-        defaultValue={0}
-      />
-      <ErrorMessage errors={errors} name="recipientId" render={messageFunc} />
-
-      <input className="button button-center" type="submit" value="Give it!" />
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <div>
+          <input
+            className="input-field max-w-md col-span-2 m-4 p-2 rounded-2xl"
+            name="title"
+            id="title"
+            placeholder="Title"
+            ref={register({
+              required: "Title Required",
+            })}
+          />
+          <ErrorMessage errors={errors} name="title" render={messageFunc} />
+        </div>
+        <div>
+          <input
+            className="input-field max-w-md col-span-2 mb-4 ml-4 p-2 pb-10 rounded-2xl"
+            name="description"
+            id="description"
+            placeholder="Give the deets!"
+            ref={register({
+              required: "Description Required",
+            })}
+          />
+          <ErrorMessage errors={errors} name="description" render={messageFunc} />
+        </div>
+        <div>
+          <Controller
+            name="recipientId"
+            as={Select}
+            options={options}
+            className="input-field max-w-md col-span-2 mb-4 ml-2 p-2 rounded-2xl"
+            id="recipientId"
+            control={control}
+            rules={{ required: true }}
+            defaultValue={0}
+          />
+          <ErrorMessage errors={errors} name="recipientId" render={messageFunc} />
+        </div>
+        <input className="p-1 mb-2 ml-4 rounded-md bg-orange-light font-quote button button-center" type="submit" value="Give it!" />
+      </form>
+    </>
   );
 };
 

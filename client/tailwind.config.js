@@ -197,6 +197,8 @@ module.exports = {
     },
     fontFamily: {
       quotes: ['"Quotes Caps"', 'sans-serif'],
+      josefin: ['"Josefin Sans"', 'sans-serif'],
+      raleway: ['"Raleway"', 'sans-serif'],
       sans: [
         'ui-sans-serif',
         'system-ui',
@@ -886,5 +888,4 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-
 }

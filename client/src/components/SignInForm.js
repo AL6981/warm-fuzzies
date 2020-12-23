@@ -26,32 +26,36 @@ const SignInForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <input
-        className="input-field"
-        type="text"
-        name="email"
-        id="email"
-        placeholder="Email"
-        ref={register({
-          required: "Required",
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "invalid email address"
-          }
-        })}
-      />
-      {errors.email && errors.email.message}
-      <input
-        className="input-field"
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Password"
-        ref={register({
-          required: "Password Required",
-        })}
-      />
-      <input className="button button-center" type="submit" value="Login" />
+      <div className="">
+        <input
+          className="p-2 rounded-md mb-2 input-field"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Email"
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "invalid email address"
+            }
+          })}
+        />
+        {errors.email && errors.email.message}
+      </div>
+      <div className="">
+        <input
+          className="p-2 mb-2 rounded-md input-field"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          ref={register({
+            required: "Password Required",
+          })}
+        />
+      </div>
+      <input className="p-1 mb-2 rounded-md bg-orange-light font-quote button button-center" type="submit" value="Login" />
     </form>
   );
 };

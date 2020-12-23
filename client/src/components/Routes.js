@@ -10,10 +10,12 @@ import GiveFuzzy from './GiveFuzzy';
 import WarmFuzziesIndex from './WarmFuzziesIndex';
 import WarmFuzziesGiven from "./WarmFuzziesGiven";
 import WarmFuzziesReceived from "./WarmFuzziesReceived";
+import BreadCrumbs from "./BreadCrumbs";
 
 const Routes = () => (
   <BrowserRouter>
     < NavBar />
+    <BreadCrumbs />
     <Switch className="flex">
       < Route exact path="/" component={Welcome} />
       < Route exact path="/users/new" component={SignUp} />
