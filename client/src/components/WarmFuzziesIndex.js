@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import WarmFuzzyClient from "../apiClient/WarmFuzzyClient";
-import WarmFuzzyItem from "../components/WarmFuzzyItem";
+import WarmFuzzyItem from "./WarmFuzzyItem";
 import { useAuthentication } from "../providers/Authentication";
 
 const WarmFuzziesIndex = (props) => {
@@ -21,26 +21,20 @@ const WarmFuzziesIndex = (props) => {
   useEffect(fetchWarmFuzzies, []);
 
   const allFuzzies = warmFuzzies.map((fuzzy => {
-    let showAllEmail;
     return (
       <WarmFuzzyItem
         key={fuzzy.id}
-        title={fuzzy.title}
-        date={fuzzy.date}
-        description={fuzzy.description}
-        elevatorId={fuzzy.elevatorId}
-        recipientId={fuzzy.recipientId}
-        recipientEmail={fuzzy.recipientEmail}
-        elevatorEmail={fuzzy.elevatorEmail}
-        showAllEmail={true}
-      />)
+        data={fuzzy}
+      />
+    )
   }))
 
   return (
-    <div className="grid grid-col-3">
-      <h3 className="font-josefin font-bold text-gray-lightest text-4xl pt-3"> ALLLLLL the WarmFuzzies! </h3>
-      {allFuzzies}
-    </div>
+    <>
+      <div className="grid grid-cols-3 gap-4 mb-10">
+        {allFuzzies}
+      </div >
+    </>
   );
 };
 

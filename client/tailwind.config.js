@@ -43,9 +43,13 @@ module.exports = {
       },
       yellow: colors.amber,
       green: colors.emerald,
-      blue: colors.blue,
+      blue: {
+        DEFAULT: '#5DD3E4'
+      },
       indigo: colors.indigo,
-      purple: colors.violet,
+      purple: {
+        DEFAULT: '#B03D91'
+      },
       pink: {
         darkest: '#49031f',
         dark: '#7a0634',
@@ -199,6 +203,7 @@ module.exports = {
       quotes: ['"Quotes Caps"', 'sans-serif'],
       josefin: ['"Josefin Sans"', 'sans-serif'],
       raleway: ['"Raleway"', 'sans-serif'],
+      rubik: ['"Rubik"', 'sans-serif'],
       sans: [
         'ui-sans-serif',
         'system-ui',

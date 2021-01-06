@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserClient from "../apiClient/UserClient";
-import WarmFuzzyItem from "./WarmFuzzyItem";
+import BackWarmFuzzy from "./BackWarmFuzzy";
 import { useAuthentication } from "../providers/Authentication";
 
 const WarmFuzziesReceived = (props) => {
@@ -23,7 +23,7 @@ const WarmFuzziesReceived = (props) => {
   const allFuzzies = warmFuzzies.map((fuzzy => {
     let showAllEmail;
     return (
-      <WarmFuzzyItem
+      <BackWarmFuzzy
         key={fuzzy.id}
         title={fuzzy.title}
         description={fuzzy.description}
@@ -36,12 +36,12 @@ const WarmFuzziesReceived = (props) => {
   }))
 
   return (
-    <div className="centered-box">
-      <div className="form-container">
-        <h3 className="font-thin my-3"> WarmFuzzies Received </h3>
+    <>
+      <h3 className="my-3 font-bold font-rubik text-blue text-4xl text-center"> Warm Fuzzies Received </h3>
+      <div className="grid grid-cols-3 gap-4 mb-10">
         {allFuzzies}
       </div>
-    </div>
+    </>
   );
 };
 

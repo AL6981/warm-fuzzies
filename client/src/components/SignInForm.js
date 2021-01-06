@@ -21,7 +21,7 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    return <Redirect push to="/home" />;
+    return <Redirect push to="/warm-fuzzies/index" />;
   }
 
   return (
@@ -55,7 +55,7 @@ const SignInForm = () => {
           })}
         />
       </div>
-      <input className="p-1 mb-2 rounded-md bg-orange-light font-quote button button-center" type="submit" value="Login" />
+      <input className="p-2 mb-2 rounded-md bg-blue font-quote button button-center" type="submit" value="Login" />
     </form>
   );
 };

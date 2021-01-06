@@ -16,17 +16,17 @@ const AuthenticationButton = () => {
     })
   }, [signOut, history]);
 
-  const className = "button place-self-center text-2xl";
+  const className = "text-xl";
 
   const DisplayButton = () => (
     user
       ? (
         <button className={className} type="button" onClick={signOutHandler}>
-          Sign Out
+          SIGN OUT
         </button>
       ) : (
         <Link className={className} to="/user-sessions/new">
-          Sign in
+          SIGN IN
         </Link>
       )
   );

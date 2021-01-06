@@ -92,7 +92,7 @@ const GiveFuzzyForm = () => {
           />
           <ErrorMessage errors={errors} name="recipientId" render={messageFunc} />
         </div>
-        <input className="p-1 mb-2 ml-4 rounded-md bg-orange-light font-quote button button-center" type="submit" value="Give it!" />
+        <input className="p-2 mb-2 ml-4 rounded-md bg-blue font-quote button button-center" type="submit" value="Give it!" />
       </form>
     </>
   );

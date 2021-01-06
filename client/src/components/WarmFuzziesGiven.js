@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserClient from "../apiClient/UserClient";
-import WarmFuzzyItem from "./WarmFuzzyItem";
+import BackWarmFuzzy from "./BackWarmFuzzy";
 import { useAuthentication } from "../providers/Authentication";
 
 const WarmFuzziesGiven = (props) => {
@@ -23,7 +23,7 @@ const WarmFuzziesGiven = (props) => {
   const allFuzzies = warmFuzzies.map((fuzzy => {
     let showAllEmail;
     return (
-      <WarmFuzzyItem
+      <BackWarmFuzzy
         key={fuzzy.id}
         title={fuzzy.title}
         description={fuzzy.description}

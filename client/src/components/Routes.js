@@ -5,7 +5,6 @@ import Home from './Home';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import NavBar from './NavBar';
-import Welcome from './Welcome';
 import GiveFuzzy from './GiveFuzzy';
 import WarmFuzziesIndex from './WarmFuzziesIndex';
 import WarmFuzziesGiven from "./WarmFuzziesGiven";
@@ -15,14 +14,12 @@ import BreadCrumbs from "./BreadCrumbs";
 const Routes = () => (
   <BrowserRouter>
     < NavBar />
-    <BreadCrumbs />
     <Switch className="flex">
-      < Route exact path="/" component={Welcome} />
+      < AuthenticatedRoute Route exact path="/" component={WarmFuzziesIndex} />
       < Route exact path="/users/new" component={SignUp} />
-      < Route exact path="/users/:id/warm-fuzzies/given" component={WarmFuzziesGiven} />
-      < Route exact path="/users/:id/warm-fuzzies/received" component={WarmFuzziesReceived} />
+      < AuthenticatedRoute Route exact path="/users/:id/warm-fuzzies/given" component={WarmFuzziesGiven} />
+      < AuthenticatedRoute Route exact path="/users/:id/warm-fuzzies/received" component={WarmFuzziesReceived} />
       < Route exact path="/user-sessions/new" component={SignIn} />
-      < AuthenticatedRoute exact path="/home" component={Home} />
       < AuthenticatedRoute exact path="/warm-fuzzies/new" component={GiveFuzzy} />
       < AuthenticatedRoute exact path="/warm-fuzzies/index" component={WarmFuzziesIndex} />
     </Switch>

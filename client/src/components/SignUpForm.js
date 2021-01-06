@@ -39,6 +39,7 @@ const SignUpForm = props => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <input
+          className="p-2 rounded-md mb-2 input-field"
           name="email"
           placeholder="Email"
           ref={register({
@@ -50,7 +51,10 @@ const SignUpForm = props => {
           })}
         />
         <ErrorMessage errors={errors} name="email" render={messageFunc} />
+      </div>
+      <div>
         <input
+          className="p-2 mb-2 rounded-md input-field"
           name="password"
           placeholder="Password"
           ref={register({
@@ -61,9 +65,9 @@ const SignUpForm = props => {
         <ErrorMessage errors={errors} name="password" render={messageFunc} />
       </div>
       <div>
-        <button type="submit">Sign Up!</button>
+        <input className="p-2 mb-2 rounded-md bg-blue font-quote button button-center" type="submit" value="Sign Up" />
       </div>
-    </form>
+    </form >
   );
 };
 

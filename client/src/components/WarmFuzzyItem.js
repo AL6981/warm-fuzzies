@@ -1,35 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import FrontWarmFuzzy from "../components/FrontWarmFuzzy";
+import BackWarmFuzzy from "../components/BackWarmFuzzy";
+import ReactCardFlip from 'react-card-flip';
 
 const WarmFuzzyItem = (props) => {
-  const { date, title, description, elevatorEmail, recipientEmail, showAllEmail } = props;
-  let email, string;
-  if (showAllEmail === true) {
-    email = [elevatorEmail, recipientEmail]
-    string = `Given by: ${email[0]} \n\n Given to: ${email[1]}`
-  } else if (showAllEmail === "elevator") {
-    email = elevatorEmail
-    string = `Given by: ${email}`
-  } else if ((showAllEmail === "recipient")) {
-    email = recipientEmail
-    string = `Given to: ${email}`
+  const { id, date, title, description, elevatorEmail, recipientEmail } = props.data;
+
+  const [fuzzyIsFlipped, setFuzzyIsFlipped] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setFuzzyIsFlipped(!fuzzyIsFlipped);
   }
+
   return (
-    <div className="hover:from-orange-lightest hover:to-pink-lightest bg-orange-lightest rounded-md p-2 m-3">
-      <div>
-        <p className="font-bold">Title:</p>
-        <p className="p-1">{`${title}`}</p>
-      </div>
-      <div>
-        <p className="font-bold">Date given:</p>
-        <p className="p-1">{`${date}`}</p>
-      </div>
-      <div>
-        <p className="font-bold">Description:</p>
-        <p className="p-1">{`${description}`}</p>
-      </div>
-      <div>
-        <p className="p-1">{`${string}`}</p>
-      </div>
+    <div className="border-solid border-4 border-purple bg-gray-lightest rounded-2xl shadow-2xl">
+      <ReactCardFlip flipDirection="horizontal" isFlipped={fuzzyIsFlipped}>
+        <FrontWarmFuzzy
+          key={id}
+          title={title}
+          handleClick={handleClick}
+        />
+        <BackWarmFuzzy
+          key={id}
+          title={title}
+          date={date}
+          description={description}
+          recipientEmail={recipientEmail}
+          elevatorEmail={elevatorEmail}
+          handleClick={handleClick}
+        />
+      </ReactCardFlip>
     </div>
   )
 }
