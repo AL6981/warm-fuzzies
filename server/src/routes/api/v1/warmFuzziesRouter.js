@@ -28,7 +28,7 @@ warmFuzziesRouter.post("/", async (req, res) => {
   return res.status(201).json({ warmFuzzy: newWarmFuzzy });
 });
 
-warmFuzziesRouter.get("/index", async (req, res) => {
+warmFuzziesRouter.get("/", async (req, res) => {
   let warmFuzzies = await WarmFuzzy.query();
   const promises = warmFuzzies.map(fuzzy => {
     return allFuzziesSerializer(fuzzy)

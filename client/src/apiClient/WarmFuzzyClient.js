@@ -21,7 +21,7 @@ class WarmFuzzyClient extends AbstractClient {
 
   async getAllFuzzies() {
     const resp = await WarmFuzzyClient.client()
-      .get('/warm-fuzzies/index').catch((error) => {
+      .get('/warm-fuzzies').catch((error) => {
         const errorStatus = error?.response?.status;
         if ([401, 422].includes(errorStatus)) {
           return error.response.data;

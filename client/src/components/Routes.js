@@ -21,7 +21,7 @@ const Routes = () => (
       < AuthenticatedRoute Route exact path="/users/:id/warm-fuzzies/received" component={WarmFuzziesReceived} />
       < Route exact path="/user-sessions/new" component={SignIn} />
       < AuthenticatedRoute exact path="/warm-fuzzies/new" component={GiveFuzzy} />
-      < AuthenticatedRoute exact path="/warm-fuzzies/index" component={WarmFuzziesIndex} />
+      < AuthenticatedRoute exact path="/warm-fuzzies" component={WarmFuzziesIndex} />
     </Switch>
   </BrowserRouter>
 );

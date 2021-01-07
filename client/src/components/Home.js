@@ -25,7 +25,7 @@ const Home = props => {
         </Link>
         </div>
         <div className="max-w-md col-span-2 my-7 bg-orange-darkest rounded-2xl">
-          <Link className="text-black-lightest text-2xl m-3" to='/warm-fuzzies/index'>
+          <Link className="text-black-lightest text-2xl m-3" to='/warm-fuzzies'>
             All Da Fuzzies!
       </Link>
         </div>

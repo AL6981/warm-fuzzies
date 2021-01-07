@@ -4,11 +4,11 @@ import { Redirect } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
 import Select from 'react-select';
 import WarmFuzzyClient from "../apiClient/WarmFuzzyClient";
-import Authentication from "../providers/Authentication";
+import { useAuthentication } from "../providers/Authentication";
 import UserClient from "../apiClient/UserClient";
 
 const GiveFuzzyForm = () => {
-  const { user } = Authentication.useAuthentication();
+  const { user } = useAuthentication();
   const [allUsers, setAllUsers] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const { handleSubmit, register, errors, reset, control } = useForm();
@@ -31,7 +31,7 @@ const GiveFuzzyForm = () => {
   }, []);
 
   if (shouldRedirect) {
-    return <Redirect push to="/warm-fuzzies/index" />;
+    return <Redirect push to="/warm-fuzzies" />;
   }
 
   const options = allUsers.map(user => {

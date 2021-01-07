@@ -21,7 +21,7 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    return <Redirect push to="/warm-fuzzies/index" />;
+    return <Redirect push to="/warm-fuzzies" />;
   }
 
   return (
