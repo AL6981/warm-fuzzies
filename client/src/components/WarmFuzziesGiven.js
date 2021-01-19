@@ -38,7 +38,7 @@ const WarmFuzziesGiven = (props) => {
   return (
     <div className="centered-box">
       <div className="form-container">
-        <h3 className="font-thin my-3"> WarmFuzzies Given </h3>
+        <h3 className="my-3 font-bold font-rubik text-blue text-4xl text-center"> WarmFuzzies Given </h3>
         {allFuzzies}
       </div>
     </div>

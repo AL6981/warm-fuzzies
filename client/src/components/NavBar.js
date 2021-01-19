@@ -1,36 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Authentication from "../providers/Authentication";
-
-import AuthenticationButton from "./AuthenticationButton";
 import logo from "../assets/scss/images/logo_fuzzy.png";
+import DisplayNav from "./DisplayNav.js"
 
 const NavBar = () => {
   const { user } = Authentication.useAuthentication();
-
-  const DisplayNav = () => (
-    user
-      ? (
-        <div className="grid grid-cols-4">
-          <Link to="/warm-fuzzies/new" className="align-middle text-center text-xl">
-            <p className="rounded-xl">GIVE</p>
-          </Link>
-          <Link to="/users/:id/warm-fuzzies/received" className="align-middle text-center text-xl">
-            <p className="rounded-xl">RECEIVED</p>
-          </Link>
-          <Link to="/users/:id/warm-fuzzies/given" className="align-middle text-center text-xl">
-            <p className="rounded-xl">GIVEN</p>
-          </Link>
-          <div className="justify-self-end pr-5">
-            <AuthenticationButton />
-          </div>
-        </div>
-      ) : (
-        <div className="justify-self-end pr-5">
-          <AuthenticationButton />
-        </div>
-      )
-  );
 
   return (
     <>
